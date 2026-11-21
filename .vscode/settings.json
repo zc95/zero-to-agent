@@ -1,0 +1,4 @@
+{
+  "python.useEnvironmentsExtension": false,
+  "python.defaultInterpreterPath": "${workspaceFolder}/exercises/python/.venv/bin/python"
+}
