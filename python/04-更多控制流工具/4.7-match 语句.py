@@ -20,7 +20,7 @@ def http_error(status):
 
 
 # 题目：http_error(404) 和 http_error(500) 分别命中哪个 case，返回什么？
-# 答：404 命中 case 404，返回 Not found。500 命中 case _，返回
+# 标准答案：404 命中 case 404，返回 Not found。500 命中 case _，返回
 #     Something's wrong with the internet。
 # 解析：match 只执行第一个匹配的分支。500 与前三个状态码都不等，
 #       由最后的通配模式接住。
@@ -37,7 +37,7 @@ def http_error_grouped(status):
 
 
 # 题目：http_error_grouped() 分别接收 401、403 和 404，会返回什么？
-# 答：三个调用都返回 Not allowed。
+# 标准答案：三个调用都返回 Not allowed。
 # 解析：| 把三个备选值放进同一个 case，任意一个匹配就执行该分支。
 
 
@@ -60,7 +60,7 @@ match point:
 
 
 # 题目：示例 3 的 (0, 5) 会命中哪个 case？打印什么？
-# 答：命中 case (0, y)，打印 Y=5。
+# 标准答案：命中 case (0, y)，打印 Y=5。
 # 解析：case (0, 0) 的第二项不匹配。下一个模式将第二项 5 绑定给 y，
 #       命中后跳过其余分支，包括 case (x, y)。
 
@@ -94,7 +94,7 @@ where_is(Point(0, 7))
 
 
 # 题目：where_is(Point(0, 7)) 会命中哪个 case？打印什么？
-# 答：命中 case Point(x=0, y=y)，打印 Y=7。
+# 标准答案：命中 case Point(x=0, y=y)，打印 Y=7。
 # 解析：对象的 y 属性为 7，跳过要求 y 为 0 的第一个分支。
 #       第二个分支要求 x 为 0，并把 y 属性值绑定给变量 y。
 
@@ -126,7 +126,7 @@ match point:
 
 
 # 题目：Point(1, 7) 用 Point(1, var) 匹配时，1 检查哪个属性？var 是多少？
-# 答：1 检查 x 属性，var 得到 7。
+# 标准答案：1 检查 x 属性，var 得到 7。
 # 解析：__match_args__ 指定位置顺序为 ("x", "y")，所以 Point(1, var)
 #       等同于 Point(x=1, y=var)。x 的值匹配到 1，y 的值 7 被绑定给 var。
 
@@ -150,7 +150,7 @@ match points:
 
 
 # 题目：示例 6 的 points 命中哪个 case？y1 和 y2 是多少？
-# 答：命中 case [Point(0, y1), Point(0, y2)]，y1 为 2，y2 为 5。
+# 标准答案：命中 case [Point(0, y1), Point(0, y2)]，y1 为 2，y2 为 5。
 # 解析：列表有两个元素，跳过前面要求零个或一个元素的模式。两个 Point 的
 #       x 都为 0，各自的 y 依次绑定给 y1、y2，打印 Two on the Y axis at 2, 5。
 
@@ -167,7 +167,7 @@ match point:
 
 
 # 题目：示例 7 的 Point(2, 5) 命中哪个 case？为什么？
-# 答：执行第二个 case Point(x, y)，打印 Not on the diagonal。
+# 标准答案：执行第二个 case Point(x, y)，打印 Not on the diagonal。
 # 解析：第一个模式匹配成功，先绑定 x = 2、y = 5。守卫 x == y 为假，
 #       因此跳过第一个分支的代码。第二个模式匹配成功，直接执行分支。
 
@@ -191,7 +191,7 @@ match values:
 
 
 # 题目：示例 8 的前三个变量 x、y、rest 分别是什么？*_ 忽略了哪些值？
-# 答：x = 10，y = 20，rest = [30, 40]。*_ 忽略 30 和 40。
+# 标准答案：x = 10，y = 20，rest = [30, 40]。*_ 忽略 30 和 40。
 # 解析：x 和 y 分别接收前两项。*rest 把余下的项收集为列表并绑定给 rest。
 #       *_ 允许后面有任意多项，并跳过这些项的绑定。
 
@@ -211,7 +211,7 @@ match connection:
 
 
 # 题目：示例 9 的 b、l、rest 分别是什么？
-# 答：b = 100，l = 20，rest = {"region": "east"}。
+# 标准答案：b = 100，l = 20，rest = {"region": "east"}。
 # 解析：两个模式都从 bandwidth 和 latency 键取值，分别绑定给 b 和 l。
 #       第一个模式忽略额外的 region 键。第二个模式用 **rest 将剩余键值对
 #       收集到一个新字典，再绑定给 rest。
@@ -228,7 +228,7 @@ match points:
 
 
 # 题目：示例 10 的 p2 是第几个 Point？它的坐标是什么？
-# 答：p2 是第二个 Point，坐标为 (3, 4)。最后打印 3 4。
+# 标准答案：p2 是第二个 Point，坐标为 (3, 4)。最后打印 3 4。
 # 解析：Point(x2, y2) 匹配第二个元素，分别把 3 和 4 绑定给 x2 和 y2。
 #       as p2 同时把这个 Point 对象绑定给 p2，所以可以读取 p2.x 和 p2.y。
 
@@ -245,7 +245,7 @@ match value:
 
 
 # 题目：示例 11 的整数 1 命中 case True 还是 case 1？
-# 答：命中 case 1，打印 Matched 1。
+# 标准答案：命中 case 1，打印 Matched 1。
 # 解析：case True 按对象身份匹配，整数 1 与 True 是不同对象，跳过该分支。
 #       case 1 按值比较，整数 1 等于模式中的 1，因此匹配成功。
 
@@ -276,6 +276,6 @@ def choose_color():
 
 
 # 题目：调用 choose_color() 并输入 blue，命中哪个 case？
-# 答：命中 case Color.BLUE，打印 "I'm feeling the blues :("。
+# 标准答案：命中 case Color.BLUE，打印 "I'm feeling the blues :("。
 # 解析：input() 读到字符串 "blue"，Color("blue") 得到枚举成员 Color.BLUE。
 #       match 将这个枚举成员与各分支的枚举成员比较，命中 Color.BLUE。

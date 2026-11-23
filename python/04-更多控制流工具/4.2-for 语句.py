@@ -53,7 +53,7 @@ demo_users = {"Hans": "active", "Éléonore": "inactive"}
 for name, status in demo_users.items():
     print(name, status)
 
-# 答案（依次输出两行）：
+# 标准答案：依次输出两行。
 # Hans active
 # Éléonore inactive
 # 解析：items() 每轮给出一对 (键, 值)，分别赋给 name 和 status。
@@ -70,7 +70,7 @@ demo_users["Éléonore"] = "inactive"
 print(list(live_items))
 print(list(copied_items))
 
-# 答案（依次输出两行）：
+# 标准答案：依次输出两行。
 # [('Hans', 'active'), ('Éléonore', 'inactive')]
 # [('Hans', 'active')]
 # 解析：live_items 是原字典的视图。添加 Éléonore 后，再把视图转成列表，
