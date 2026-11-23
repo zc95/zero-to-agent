@@ -1,54 +1,19 @@
-# 4.1 if 语句｜交互练习
+# 4.1 if 语句｜官方示例
 # https://docs.python.org/zh-cn/3.13/tutorial/controlflow.html#if-statements
-# 可以选中单题运行，先写预测，再观察实际输出。
+# 在终端运行此文件，按提示输入整数并按回车。
 
-# 第 01 题｜预测输出并说出检查了哪些条件
-score = 80
-
-if score >= 90:
-    print("优秀")
-elif score >= 60:
-    print("及格")
+x = int(input("Please enter an integer: "))
+if x < 0:
+    x = 0
+    print("Negative changed to zero")
+elif x == 0:
+    print("Zero")
+elif x == 1:
+    print("Single")
 else:
-    print("继续练习")
+    print("More")
 
-print("评分结束")
-
-# 答案：依次打印「及格」「评分结束」，检查两个条件。
-# 解析：80 >= 90 为假，继续检查 80 >= 60。第二个条件为真，
-# 打印「及格」并跳过 else。最后一条 print 在条件语句外，照常执行。
-
-# 第 02 题｜只改分数，预测输出并判断第二个条件是否会被检查
-score = 95
-
-if score >= 90:
-    print("优秀")
-elif score >= 60:
-    print("及格")
-else:
-    print("继续练习")
-
-print("评分结束")
-
-# 答案：依次打印「优秀」「评分结束」。程序跳过第二个条件。
-# 解析：95 >= 90 为真，先打印「优秀」。随后跳过 elif 和 else，
-# 执行条件语句外的 print，打印「评分结束」。
-
-# 第 03 题｜把 elif 改成独立的 if
-# 按顺序预测输出，并判断 else 和哪个 if 配对。
-score = 95
-
-if score >= 90:
-    print("优秀")
-
-if score >= 60:
-    print("及格")
-else:
-    print("继续练习")
-
-print("评分结束")
-
-# 答案：依次打印「优秀」「及格」「评分结束」。else 与第二个 if 配对。
-# 解析：95 >= 90 为真，第一个 if 打印「优秀」。接着执行独立的第二个
-# if，95 >= 60 也为真，因此打印「及格」并跳过对应的 else。最后打印
-# 「评分结束」。
+# 输入 42：三个条件依次为假，执行 else，打印 More。x 仍为 42。
+# 输入 -2：第一个条件为真，先把 x 改成 0，再打印 Negative changed to zero。
+# 这一轮已经进入 if 分支，后面的 elif 和 else 都跳过，最终 x 为 0。
+# 输入 0 或 1：分别命中两个 elif，打印 Zero 或 Single。
