@@ -1,10 +1,11 @@
 # 从零开始学 AI Agent
 
-从 Python 入门到 AI Agent 开发，记录学习路线、技术笔记和代码示例。涵盖 FastAPI、LLM、RAG、LangChain 和 LangGraph。
+从 Python 入门到 AI Agent 开发，记录学习路线、练习和代码示例。涵盖 FastAPI、LLM、RAG、LangChain 和 LangGraph。
 
 ## 关键文件指引
 
-- [Python 练习](exercises/python/) — 按 Python 官方教程章节整理的代码示例和测试。
+- [Python 练习](python/) — 按 Python 官方教程章节整理的代码示例和测试。
+- [Python 学习与练习指南](python/README.md) — 官方教程带练、练习归档和章末测试的约定。
 
 ## 学习规划
 
